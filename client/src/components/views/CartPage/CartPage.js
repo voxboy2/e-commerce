@@ -149,7 +149,7 @@ function CartPage (props) {
           
 
          {ShowTotal && 
-         <Paypal 
+         <Paypal
            toPay={Total}
            onSucess={transactionSuccess}
            transactionError = {transactionError}

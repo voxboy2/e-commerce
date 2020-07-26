@@ -38,9 +38,9 @@ function LandingPage() {
     Axios.post('/api/product/getProducts', variables)
     .then(response => {
         if (response.data.success) {
-             if (response.data.success) {
+             if (variables.loadMore) {
 
-                setProducts(...Products, response.data.products)
+                setProducts([...Products, response.data.products])
 
              }  else {
 
@@ -73,23 +73,20 @@ function LandingPage() {
     }
 
     const renderCards = Products.map((product, index) => {
-        return <Col lg={6} md={8} x5={24}>
-        
 
+        return <Col lg={6} md={8} xs={24}>
             <Card
                 hoverable={true}
                 cover={<a href={`/product/${product._id}`} > <ImageSlider images={product.images} /></a>}
             >
-
-            <Meta 
-                title={product.title}
-                description={`$${product.price}`}
-            />
-            
-        </Card>
+                <Meta
+                    title={product.title}
+                    description={`$${product.price}`}
+                />
+            </Card>
         </Col>
-        
     })
+
 
     const showFilteredResults = (filters)  => {
          
@@ -168,11 +165,11 @@ function LandingPage() {
                 <h2>Let's Travel Anywhere <Icon type="rocket" /> </h2>
             </div>
 
-            {/* Filter */}
+            {/* Filter m*/}
 
             <Row gutter={[16, 16]}>
                  <Col lg={12} xs={24}>
-                 <CheckBox
+                 <CheckBox 
                    list = {continents}
                     handleFilters={filters => handleFilters(filters, "continents")}
                   />

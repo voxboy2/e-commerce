@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Checkbox, Collapse } from 'antd'; 
-import { OmitProps } from 'antd/lib/transfer/renderListBody';
 
 const { Panel } = Collapse
 
@@ -45,7 +44,7 @@ const { Panel } = Collapse
         <div>
 
         <Collapse defaultActiveKey={['0']} >
-        <Panel header="continent" key="1">
+        <Panel header="continents" key="1">
             {renderCheckboxLists()}
         </Panel>
         </Collapse>
